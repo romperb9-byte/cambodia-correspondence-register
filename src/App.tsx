@@ -15,7 +15,7 @@ import {
   syncWithGoogleSheets,
 } from './services/storageService';
 import { INITIAL_OUTGOING_LETTERS, INITIAL_INCOMING_LETTERS, INITIAL_SETTINGS } from './data/initialData';
-import { Navbar } from './components/Navbar';
+import { Sidebar } from './components/Sidebar';
 import { DashboardView } from './components/DashboardView';
 import { OutgoingLettersView } from './components/OutgoingLettersView';
 import { IncomingLettersView } from './components/IncomingLettersView';
@@ -29,6 +29,9 @@ import { LetterDetailModal } from './components/LetterDetailModal';
 export default function App() {
   // Navigation tab
   const [activeTab, setActiveTab] = useState<'dashboard' | 'outgoing' | 'incoming' | 'reports' | 'settings'>('dashboard');
+
+  // Sidebar collapsed state
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Core Data
   const [settings, setSettings] = useState<SystemSettings>(loadSettings);
@@ -205,8 +208,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      {/* Top Navbar */}
-      <Navbar
+      {/* Left Collapsible Sidebar */}
+      <Sidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenNewOutgoing={() => {
@@ -222,10 +225,17 @@ export default function App() {
         onSync={handleSyncWithGoogleSheets}
         syncStatus={syncStatus}
         lastSyncedAt={settings.lastSyncedAt}
+        collapsed={sidebarCollapsed}
+        setCollapsed={setSidebarCollapsed}
       />
 
-      {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      {/* Main Content Area with dynamic left margin for Sidebar */}
+      <div
+        className={`flex-1 flex flex-col transition-all duration-300 ease-in-out ${
+          sidebarCollapsed ? 'md:ml-20' : 'md:ml-64'
+        }`}
+      >
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {activeTab === 'dashboard' && (
           <DashboardView
             outgoingLetters={outgoingLetters}
@@ -305,21 +315,22 @@ export default function App() {
             syncStatus={syncStatus}
           />
         )}
-      </main>
+        </main>
 
-      {/* Footer */}
-      <footer className="no-print bg-white border-t border-slate-200 py-4 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-800">{settings.institutionName}</span>
-            <span aria-hidden="true">·</span>
-            <span>{settings.departmentName}</span>
+        {/* Footer */}
+        <footer className="no-print bg-white border-t border-slate-200 py-4 mt-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-slate-800">{settings.institutionName}</span>
+              <span aria-hidden="true">·</span>
+              <span>{settings.departmentName}</span>
+            </div>
+            <div className="text-center sm:text-right">
+              <span>ប្រព័ន្ធគ្រប់គ្រងសៀវភៅចុះលិខិតចេញ-ចូល (រដ្ឋបាលអប់រំកម្ពុជា) · ឆ្នាំ {settings.currentYear}</span>
+            </div>
           </div>
-          <div className="text-center sm:text-right">
-            <span>ប្រព័ន្ធគ្រប់គ្រងសៀវភៅចុះលិខិតចេញ-ចូល (រដ្ឋបាលអប់រំកម្ពុជា) · ឆ្នាំ {settings.currentYear}</span>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
 
       {/* Outgoing Letter Modal */}
       <OutgoingLetterModal
