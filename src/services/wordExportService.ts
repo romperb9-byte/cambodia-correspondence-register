@@ -307,11 +307,11 @@ export function exportToWordDocument({
     <!-- Official Cambodian Verification / Endorsement Signatures at the bottom -->
     <table style="width: 100%; border-collapse: collapse; border: none; margin-top: 36px; page-break-inside: avoid;">
       <tr>
-        <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 0 10px;">
-          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000;">
+        <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 22px 10px 0 10px;">
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; line-height: 1.4;">
             បានឃើញ និងឯកភាព
           </div>
-          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px;">
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px; line-height: 1.4;">
             នាយកសាលា
           </div>
           <div style="height: 70px;"></div>
@@ -322,10 +322,10 @@ export function exportToWordDocument({
         </td>
 
         <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 0 10px;">
-          <div style="font-size: 10pt; color: #0f172a;">
+          <div style="font-size: 10pt; color: #0f172a; line-height: 1.4;">
             ថ្ងៃទី............ ខែ............ ឆ្នាំ ${useKhmerDigits ? toKhmerNum(settings.currentYear) : settings.currentYear}
           </div>
-          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px;">
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px; line-height: 1.4;">
             អ្នកកត់ត្រា
           </div>
           <div style="height: 70px;"></div>

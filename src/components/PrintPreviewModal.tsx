@@ -486,10 +486,10 @@ export const PrintPreviewModal: React.FC<Props> = ({
 
             {/* Official Cambodian Verification / Endorsement Signatures at the bottom */}
             <div className="pt-10 grid grid-cols-2 text-center text-xs sm:text-sm font-medium text-slate-900 border-t border-slate-300 mt-8" style={{ pageBreakInside: 'avoid' }}>
-              {/* Left Column: បានឃើញនិងឯកភាព នាយកសាលា */}
-              <div className="flex flex-col items-center">
-                <p className="font-moul text-xs sm:text-sm text-slate-900">បានឃើញ និងឯកភាព</p>
-                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1">នាយកសាលា</p>
+              {/* Left Column: បានឃើញនិងឯកភាព នាយកសាលា (នៅក្រោមអ្នកកត់ត្រាមួយបន្ទាត់) */}
+              <div className="flex flex-col items-center pt-5">
+                <p className="font-moul text-xs sm:text-sm text-slate-900 leading-normal">បានឃើញ និងឯកភាព</p>
+                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1 leading-normal">នាយកសាលា</p>
                 <div className="h-20 flex items-center justify-center">
                   {/* បន្ទាត់សម្រាប់ចុះហត្ថលេខា */}
                   <div className="w-48 border-b border-dashed border-slate-400 mt-12"></div>
@@ -500,12 +500,12 @@ export const PrintPreviewModal: React.FC<Props> = ({
                 <div className="w-56 border-b border-slate-800 mt-6"></div>
               </div>
 
-              {/* Right Column: កាលបរិច្ឆេទ & អ្នកកត់ត្រា */}
+              {/* Right Column: កាលបរិច្ឆេទ & អ្នកកត់ត្រា (ខ្ពស់ជាងនាយកសាលាមួយបន្ទាត់) */}
               <div className="flex flex-col items-center">
-                <p className="text-slate-800 font-medium">
+                <p className="text-slate-800 font-medium leading-normal">
                   ថ្ងៃទី............ ខែ............ ឆ្នាំ {useKhmerDigits ? toKhmerNum(settings.currentYear) : settings.currentYear}
                 </p>
-                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1">អ្នកកត់ត្រា</p>
+                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1 leading-normal">អ្នកកត់ត្រា</p>
                 <div className="h-20 flex items-center justify-center">
                   {/* បន្ទាត់សម្រាប់ចុះហត្ថលេខា */}
                   <div className="w-48 border-b border-dashed border-slate-400 mt-12"></div>
