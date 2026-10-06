@@ -186,7 +186,7 @@ export const OutgoingLettersView: React.FC<Props> = ({
         </div>
 
         {/* Official Book Title */}
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-moul tracking-wide my-2">
+        <h1 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 font-moul tracking-wide my-1.5">
           សៀវភៅចុះលិខិតចេញ
         </h1>
 

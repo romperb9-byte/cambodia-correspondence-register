@@ -39,7 +39,7 @@ export const Navbar: React.FC<Props> = ({
             >
               <CambodiaEmblem size={38} className="shrink-0" />
               <div>
-                <span className="font-moul text-base text-slate-900 tracking-wide block group-hover:text-amber-700 transition-colors">
+                <span className="font-moul text-sm text-slate-900 tracking-wide block group-hover:text-amber-700 transition-colors">
                   សៀវភៅចុះលិខិតចេញ-ចូល
                 </span>
                 <span className="text-[11px] text-slate-500 font-medium block">

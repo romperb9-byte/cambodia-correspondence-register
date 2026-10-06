@@ -229,7 +229,7 @@ export const PrintPreviewModal: React.FC<Props> = ({
 
               {/* Cover Title */}
               <div className="my-10 py-6 px-10 border-2 border-slate-900 inline-block bg-slate-50/50">
-                <h1 className="font-moul text-2xl sm:text-4xl text-slate-900 tracking-wider">
+                <h1 className="font-moul text-lg sm:text-2xl text-slate-900 tracking-wider">
                   {bookType === 'outgoing' ? 'សៀវភៅចុះលិខិតចេញ' : 'សៀវភៅចុះលិខិតចូល'}
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-3">
@@ -276,7 +276,7 @@ export const PrintPreviewModal: React.FC<Props> = ({
 
             {/* Official Book Title (Strictly as specified) */}
             <div className="text-center space-y-1">
-              <h1 className="font-moul text-lg sm:text-2xl text-slate-900 tracking-wide">
+              <h1 className="font-moul text-base sm:text-lg text-slate-900 tracking-wide">
                 {bookType === 'outgoing' ? 'សៀវភៅចុះលិខិតចេញ' : 'សៀវភៅចុះលិខិតចូល'}
               </h1>
 
