@@ -151,7 +151,7 @@ export async function syncWithGoogleSheets(
 
     return {
       success: false,
-      message: `មិនអាចភ្ជាប់ទៅ Google Apps Script បានទេ៖ ${err.message || 'សូមពិនិត្យមើល URL និងសិទ្ធិចូលប្រើ Web App (Anyone)'}`,
+      message: `មិនអាចភ្ជាប់ទៅ Google Apps Script បានទេ (Failed to fetch)៖ មូលហេតុមកពី Deployment មិនទាន់បើកជា Anyone ឬ URL ចាស់។ សូមចូល Google Sheets ➜ Extensions ➜ Apps Script ➜ Deploy ➜ Manage Deployments ➜ កែសម្រួលយក "Who has access: Anyone" រួច Save។`,
     };
   }
 }

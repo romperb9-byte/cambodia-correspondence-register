@@ -286,14 +286,21 @@ export const PrintPreviewModal: React.FC<Props> = ({
           <div className="space-y-4">
             {/* Optional Official National Header */}
             {showOfficialHeader && (
-              <div className="flex justify-between items-start text-xs mb-4 pb-2 border-b border-slate-200">
-                <div className="text-left space-y-0.5">
-                  <p className="font-moul text-xs text-slate-900 leading-tight">{settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'}</p>
-                  <p className="font-moul text-xs text-slate-800 leading-tight">{settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}</p>
-                </div>
-                <div className="text-center space-y-0.5">
+              <div className="mb-6 pb-2 border-b border-slate-300">
+                {/* 1. បាវចនាជាតិ នៅខ្ពស់ជាងគេបំផុត */}
+                <div className="text-right pb-1">
                   <p className="font-moul text-xs text-slate-900 leading-tight">ព្រះរាជាណាចក្រកម្ពុជា</p>
-                  <p className="font-moul text-[11px] text-slate-800 leading-tight">ជាតិ សាសនា ព្រះមហាក្សត្រ</p>
+                  <p className="font-moul text-[11px] text-slate-800 leading-tight mt-0.5">ជាតិ សាសនា ព្រះមហាក្សត្រ</p>
+                </div>
+
+                {/* 2. ការិយាល័យ និង 3. សាលារៀន នៅបន្ទាប់ពីបាវចនាជាតិ (ផ្នែកខាងឆ្វេង) */}
+                <div className="text-left space-y-0.5 pt-0.5">
+                  <p className="font-moul text-xs text-slate-900 leading-tight">
+                    {settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'}
+                  </p>
+                  <p className="font-moul text-xs text-slate-800 leading-tight">
+                    {settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}
+                  </p>
                 </div>
               </div>
             )}
@@ -478,21 +485,35 @@ export const PrintPreviewModal: React.FC<Props> = ({
             </div>
 
             {/* Official Cambodian Verification / Endorsement Signatures at the bottom */}
-            <div className="pt-8 grid grid-cols-2 text-center text-xs sm:text-sm font-medium text-slate-900" style={{ pageBreakInside: 'avoid' }}>
-              <div>
-                <p className="font-moul text-xs">បានឃើញ និងឯកភាព</p>
-                <p className="mt-1 font-semibold">{settings.departmentName || 'ប្រធានការិយាល័យ'}</p>
-                <div className="h-16"></div>
-                <p className="text-slate-500 text-xs">(ហត្ថលេខា និងត្រា)</p>
+            <div className="pt-10 grid grid-cols-2 text-center text-xs sm:text-sm font-medium text-slate-900 border-t border-slate-300 mt-8" style={{ pageBreakInside: 'avoid' }}>
+              {/* Left Column: បានឃើញនិងឯកភាព នាយកសាលា */}
+              <div className="flex flex-col items-center">
+                <p className="font-moul text-xs sm:text-sm text-slate-900">បានឃើញ និងឯកភាព</p>
+                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1">នាយកសាលា</p>
+                <div className="h-20 flex items-center justify-center">
+                  {/* បន្ទាត់សម្រាប់ចុះហត្ថលេខា */}
+                  <div className="w-48 border-b border-dashed border-slate-400 mt-12"></div>
+                </div>
+                <p className="text-slate-600 text-xs mt-2 font-semibold">
+                  (ហត្ថលេខា និងត្រា)
+                </p>
+                <div className="w-56 border-b border-slate-800 mt-6"></div>
               </div>
 
-              <div>
-                <p>
+              {/* Right Column: កាលបរិច្ឆេទ & អ្នកកត់ត្រា */}
+              <div className="flex flex-col items-center">
+                <p className="text-slate-800 font-medium">
                   ថ្ងៃទី............ ខែ............ ឆ្នាំ {useKhmerDigits ? toKhmerNum(settings.currentYear) : settings.currentYear}
                 </p>
-                <p className="mt-1 font-semibold">អ្នកកត់ត្រា</p>
-                <div className="h-16"></div>
-                <p className="text-slate-500 text-xs">(ហត្ថលេខា និងឈ្មោះ)</p>
+                <p className="font-moul text-xs sm:text-sm text-slate-900 mt-1">អ្នកកត់ត្រា</p>
+                <div className="h-20 flex items-center justify-center">
+                  {/* បន្ទាត់សម្រាប់ចុះហត្ថលេខា */}
+                  <div className="w-48 border-b border-dashed border-slate-400 mt-12"></div>
+                </div>
+                <p className="text-slate-600 text-xs mt-2 font-semibold">
+                  (ហត្ថលេខា និងឈ្មោះ)
+                </p>
+                <div className="w-56 border-b border-slate-800 mt-6"></div>
               </div>
             </div>
           </div>

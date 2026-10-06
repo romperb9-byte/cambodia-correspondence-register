@@ -170,26 +170,27 @@ export function exportToWordDocument({
   // Official header
   const officialHeaderHtml = showOfficialHeader
     ? `
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 12px; border: none;">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; border: none;">
         <tr>
-          <td style="width: 50%; vertical-align: top; text-align: left; border: none; padding: 0;">
-            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10pt; line-height: 1.4;">
+          <td style="width: 50%; vertical-align: bottom; text-align: left; border: none; padding: 0;">
+            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10.5pt; line-height: 1.4;">
               ${settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'}
             </div>
-            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10pt; line-height: 1.4;">
+            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10.5pt; line-height: 1.4;">
               ${settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}
             </div>
           </td>
-          <td style="width: 50%; vertical-align: top; text-align: center; border: none; padding: 0;">
-            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10.5pt; line-height: 1.4;">
+          <td style="width: 50%; vertical-align: top; text-align: right; border: none; padding: 0;">
+            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; line-height: 1.4;">
               ព្រះរាជាណាចក្រកម្ពុជា
             </div>
-            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 9.5pt; line-height: 1.4;">
+            <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 10pt; line-height: 1.4; margin-top: 2px;">
               ជាតិ សាសនា ព្រះមហាក្សត្រ
             </div>
           </td>
         </tr>
       </table>
+      <div style="border-bottom: 1px solid #94a3b8; margin-bottom: 14px;"></div>
     `
     : '';
 
@@ -303,7 +304,40 @@ export function exportToWordDocument({
       </tbody>
     </table>
 
-    <div style="margin-top: 18px; font-size: 8.5pt; color: #64748b; text-align: right;">
+    <!-- Official Cambodian Verification / Endorsement Signatures at the bottom -->
+    <table style="width: 100%; border-collapse: collapse; border: none; margin-top: 36px; page-break-inside: avoid;">
+      <tr>
+        <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 0 10px;">
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000;">
+            បានឃើញ និងឯកភាព
+          </div>
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px;">
+            នាយកសាលា
+          </div>
+          <div style="height: 70px;"></div>
+          <div style="font-size: 9.5pt; color: #475569;">
+            (ហត្ថលេខា និងត្រា)
+          </div>
+          <div style="width: 200px; border-bottom: 1.5pt solid #000; margin: 18px auto 0 auto;"></div>
+        </td>
+
+        <td style="width: 50%; text-align: center; vertical-align: top; border: none; padding: 0 10px;">
+          <div style="font-size: 10pt; color: #0f172a;">
+            ថ្ងៃទី............ ខែ............ ឆ្នាំ ${useKhmerDigits ? toKhmerNum(settings.currentYear) : settings.currentYear}
+          </div>
+          <div style="font-family: 'Khmer OS Muol Light', 'Khmer OS Muol', 'Moul', sans-serif; font-size: 11pt; color: #000; margin-top: 4px;">
+            អ្នកកត់ត្រា
+          </div>
+          <div style="height: 70px;"></div>
+          <div style="font-size: 9.5pt; color: #475569;">
+            (ហត្ថលេខា និងឈ្មោះ)
+          </div>
+          <div style="width: 200px; border-bottom: 1.5pt solid #000; margin: 18px auto 0 auto;"></div>
+        </td>
+      </tr>
+    </table>
+
+    <div style="margin-top: 24px; font-size: 8.5pt; color: #64748b; text-align: right;">
       កាលបរិច្ឆេទបង្កើតឯកសារ៖ ${new Date().toLocaleDateString('km-KH')} · ប្រព័ន្ធគ្រប់គ្រងសៀវភៅចុះលិខិតចេញ-ចូល
     </div>
   </div>
