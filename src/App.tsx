@@ -65,18 +65,22 @@ export default function App() {
     letter: null,
   });
 
-  // Calculate next suggested sequential numbers
+  // Calculate next suggested sequential numbers (filtered by selected year)
+  const currentYear = settings.currentYear || new Date().getFullYear();
+
   const nextOutgoingNumber = useMemo(() => {
-    if (outgoingLetters.length === 0) return 1;
-    const maxNum = Math.max(...outgoingLetters.map((l) => Number(l.recordNumber) || 0));
+    const lettersThisYear = outgoingLetters.filter((l) => Number(l.year) === currentYear);
+    if (lettersThisYear.length === 0) return 1;
+    const maxNum = Math.max(...lettersThisYear.map((l) => Number(l.recordNumber) || 0));
     return maxNum + 1;
-  }, [outgoingLetters]);
+  }, [outgoingLetters, currentYear]);
 
   const nextIncomingNumber = useMemo(() => {
-    if (incomingLetters.length === 0) return 1;
-    const maxNum = Math.max(...incomingLetters.map((l) => Number(l.recordNumber) || 0));
+    const lettersThisYear = incomingLetters.filter((l) => Number(l.year) === currentYear);
+    if (lettersThisYear.length === 0) return 1;
+    const maxNum = Math.max(...lettersThisYear.map((l) => Number(l.recordNumber) || 0));
     return maxNum + 1;
-  }, [incomingLetters]);
+  }, [incomingLetters, currentYear]);
 
   // Sync with Google Sheets handler
   const handleSyncWithGoogleSheets = useCallback(async () => {
