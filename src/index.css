@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Kantumruy Pro', 'Siemreap', sans-serif;
+  }
+}
+
+.font-moul {
+  font-family: 'Moul', 'Khmer OS Muol Light', serif;
+}
+
+.font-siemreap {
+  font-family: 'Siemreap', 'Khmer OS Siemreap', sans-serif;
+}
+
+.font-kantumruy {
+  font-family: 'Kantumruy Pro', sans-serif;
+}
+
+.font-battambang {
+  font-family: 'Battambang', sans-serif;
+}
+
+/* Print Specific Rules */
+@media print {
+  @page {
+    margin: 12mm 10mm 12mm 10mm;
+    size: auto;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .printable-area {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
