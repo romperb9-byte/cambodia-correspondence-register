@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { OutgoingLetter, IncomingLetter, SystemSettings } from '../types';
 import { calculateBookHeader, toKhmerNum, padNumber } from '../utils/khmerNumerals';
 import { CambodiaEmblem } from './CambodiaEmblem';
-import { Printer, X, FileText, Check, Settings2, BookOpen } from 'lucide-react';
+import { Printer, X, FileText, Check, Settings2, BookOpen, Download } from 'lucide-react';
+import { exportToWordDocument } from '../services/wordExportService';
 
 interface Props {
   isOpen: boolean;
@@ -52,6 +53,20 @@ export const PrintPreviewModal: React.FC<Props> = ({
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleExportWord = () => {
+    exportToWordDocument({
+      bookType,
+      letters: activeRecords,
+      settings,
+      headerInfo,
+      paperSize,
+      orientation,
+      showOfficialHeader,
+      useKhmerDigits,
+      includeCoverPage,
+    });
   };
 
   return (
@@ -167,18 +182,27 @@ export const PrintPreviewModal: React.FC<Props> = ({
           </button>
         </div>
 
-        {/* Right: Print & Close Buttons */}
+        {/* Right: Word Export, Print & Close Buttons */}
         <div className="flex items-center gap-2">
           <button
+            onClick={handleExportWord}
+            title="ទាញយកជាឯកសារ Microsoft Word (.doc) ងាយស្រួលកែសម្រួល"
+            className="px-3.5 py-2 text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <Download size={14} />
+            <span>ទាញយកជា Word (.doc)</span>
+          </button>
+
+          <button
             onClick={handlePrint}
-            className="px-4 py-2 text-xs font-bold text-white bg-amber-700 hover:bg-amber-800 rounded-lg shadow-sm transition-colors flex items-center gap-1.5"
+            className="px-3.5 py-2 text-xs font-bold text-white bg-amber-700 hover:bg-amber-800 rounded-lg shadow-sm transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <Printer size={15} />
-            <span>បោះពុម្ពឥឡូវនេះ (Print)</span>
+            <span>បោះពុម្ព (Print)</span>
           </button>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
           >
             <X size={18} />
           </button>
