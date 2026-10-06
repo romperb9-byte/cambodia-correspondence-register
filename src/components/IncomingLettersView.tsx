@@ -178,7 +178,7 @@ export const IncomingLettersView: React.FC<Props> = ({
 
         {/* Institution Info */}
         <div className="text-xs text-slate-600 font-medium mb-1">
-          {settings.institutionName} · {settings.departmentName}
+          {settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'} · {settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}
         </div>
 
         {/* Official Book Title */}

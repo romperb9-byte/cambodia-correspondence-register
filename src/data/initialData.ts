@@ -1,9 +1,9 @@
 import { OutgoingLetter, IncomingLetter, SystemSettings } from '../types';
 
 export const INITIAL_SETTINGS: SystemSettings = {
-  institutionName: 'វិទ្យាល័យ ហ៊ុន សែន ព្រែកព្នៅ',
-  departmentName: 'ការិយាល័យរដ្ឋបាល និងបុគ្គលិក',
-  address: 'សង្កាត់ព្រែកព្នៅ ខណ្ឌព្រែកព្នៅ រាជធានីភ្នំពេញ',
+  institutionName: 'សាលាបឋមថ្លុកដង្កោ',
+  departmentName: 'ការិយាល័យអប់រំ យុវជន និងកីឡា',
+  address: '',
   phone: '023 888 999 / 012 345 678',
   email: 'prekpnov.highschool@moeys.gov.kh',
   currentYear: 2026,

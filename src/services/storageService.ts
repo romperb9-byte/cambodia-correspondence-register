@@ -13,6 +13,12 @@ export function loadSettings(): SystemSettings {
       if (!parsed.googleScriptUrl) {
         parsed.googleScriptUrl = INITIAL_SETTINGS.googleScriptUrl;
       }
+      if (parsed.institutionName === 'វិទ្យាល័យ ហ៊ុន សែន ព្រែកព្នៅ' || !parsed.institutionName) {
+        parsed.institutionName = INITIAL_SETTINGS.institutionName;
+      }
+      if (parsed.departmentName === 'ការិយាល័យរដ្ឋបាល និងបុគ្គលិក' || !parsed.departmentName) {
+        parsed.departmentName = INITIAL_SETTINGS.departmentName;
+      }
       return { ...INITIAL_SETTINGS, ...parsed };
     }
   } catch (err) {

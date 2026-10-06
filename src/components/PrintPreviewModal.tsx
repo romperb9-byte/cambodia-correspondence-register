@@ -219,11 +219,11 @@ export const PrintPreviewModal: React.FC<Props> = ({
 
               {/* Institution Details */}
               <div className="my-8 space-y-2">
-                <p className="font-moul text-base sm:text-xl text-slate-900">
-                  {settings.institutionName}
+                <p className="font-moul text-sm sm:text-base text-slate-800">
+                  {settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'}
                 </p>
-                <p className="text-sm font-semibold text-slate-800">
-                  {settings.departmentName}
+                <p className="font-moul text-base sm:text-xl text-slate-900">
+                  {settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}
                 </p>
               </div>
 
@@ -263,13 +263,13 @@ export const PrintPreviewModal: React.FC<Props> = ({
             {/* Optional Official National Header */}
             {showOfficialHeader && (
               <div className="flex justify-between items-start text-xs mb-4 pb-2 border-b border-slate-200">
-                <div className="text-left">
-                  <p className="font-moul text-xs text-slate-900">{settings.institutionName}</p>
-                  <p className="text-[11px] text-slate-700">{settings.departmentName}</p>
+                <div className="text-left space-y-0.5">
+                  <p className="font-moul text-xs text-slate-900 leading-tight">{settings.departmentName || 'ការិយាល័យអប់រំ យុវជន និងកីឡា'}</p>
+                  <p className="font-moul text-xs text-slate-800 leading-tight">{settings.institutionName || 'សាលាបឋមថ្លុកដង្កោ'}</p>
                 </div>
-                <div className="text-center">
-                  <p className="font-moul text-xs text-slate-900">ព្រះរាជាណាចក្រកម្ពុជា</p>
-                  <p className="font-moul text-[11px] text-slate-800">ជាតិ សាសនា ព្រះមហាក្សត្រ</p>
+                <div className="text-center space-y-0.5">
+                  <p className="font-moul text-xs text-slate-900 leading-tight">ព្រះរាជាណាចក្រកម្ពុជា</p>
+                  <p className="font-moul text-[11px] text-slate-800 leading-tight">ជាតិ សាសនា ព្រះមហាក្សត្រ</p>
                 </div>
               </div>
             )}
