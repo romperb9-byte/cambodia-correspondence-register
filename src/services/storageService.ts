@@ -9,7 +9,11 @@ export function loadSettings(): SystemSettings {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
     if (raw) {
-      return { ...INITIAL_SETTINGS, ...JSON.parse(raw) };
+      const parsed = JSON.parse(raw);
+      if (!parsed.googleScriptUrl) {
+        parsed.googleScriptUrl = INITIAL_SETTINGS.googleScriptUrl;
+      }
+      return { ...INITIAL_SETTINGS, ...parsed };
     }
   } catch (err) {
     console.error('Failed to load settings from storage', err);

@@ -12,7 +12,7 @@ export const INITIAL_SETTINGS: SystemSettings = {
   showOfficialHeader: true,
   googleSpreadsheetId: '',
   googleDriveFolderId: '',
-  googleScriptUrl: '',
+  googleScriptUrl: 'https://script.google.com/macros/s/AKfycbyd_-OGzDdQAUBHbr-h9JGLJqdYBZtOJXLyX5KwM53yOit8gPPyQq9ZANKdIG_l46q9KA/exec',
   lastSyncedAt: null,
   useKhmerDigits: false,
   fontSizePt: 11,
